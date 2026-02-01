@@ -8,6 +8,7 @@ import WhyAreWeUnique from "./components/WhyAreWeUnique";
 import InputBahan from "./components/pages/InputBahan";
 import Rekomendasi from "./components/pages/Rekomendasi";
 import DetailBahan from "./components/pages/DetailBahan";
+import UploadResep from "./components/pages/UploadResep";
 import { ScrollToTop } from "./components/ScrollToTop";
 import "./index.css";
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/input" element={<InputBahan />} />
         <Route path="/rekomendasi" element={<Rekomendasi />} />
         <Route path="/detail/:id" element={<DetailBahan />} />
+        <Route path="/upload-resep" element={<UploadResep />} />
       </Routes>
     </Router>
   );
