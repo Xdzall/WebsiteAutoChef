@@ -34,6 +34,7 @@ function App() {
         <Route path="/rekomendasi" element={<Rekomendasi />} />
         <Route path="/detail/:id" element={<DetailBahan />} />
         <Route path="/upload-resep" element={<UploadResep />} />
+        <Route path="/edit-resep/:id" element={<UploadResep />} />
       </Routes>
     </Router>
   );
