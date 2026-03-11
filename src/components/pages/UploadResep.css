@@ -1,0 +1,709 @@
+/* ===== AUTOCHEF ADMIN — UploadResep.css ===== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@300;400;600;700&display=swap');
+
+/* ── Reset & Base ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --brand:        #FF6B00;
+  --brand-deep:   #E05500;
+  --brand-light:  #FFF0E6;
+  --brand-pale:   #FFF8F3;
+  --accent:       #FFB347;
+  --dark:         #1A1006;
+  --mid:          #6B4A2A;
+  --muted:        #A07850;
+  --border:       #F0E0D0;
+  --surface:      #FFFFFF;
+  --bg:           #FBF7F4;
+  --success:      #1DB954;
+  --danger:       #E53935;
+  --info:         #0097A7;
+  --radius-sm:    6px;
+  --radius:       12px;
+  --radius-lg:    20px;
+  --shadow-xs:    0 1px 3px rgba(255,107,0,0.08);
+  --shadow-sm:    0 4px 12px rgba(255,107,0,0.12);
+  --shadow-md:    0 8px 28px rgba(255,107,0,0.16);
+  --shadow-lg:    0 20px 60px rgba(255,107,0,0.18);
+  --transition:   all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  min-height: 100vh;
+}
+
+/* ── Page Container ───────────────────────────── */
+.input-bahan-container {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(255,179,71,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 35% at 5% 80%,  rgba(255,107,0,0.10) 0%, transparent 60%),
+    var(--bg);
+  padding: 40px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Main Card ────────────────────────────────── */
+.input-box {
+  width: 100%;
+  max-width: 900px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 40px 44px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* decorative top stripe */
+.input-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+/* ── Typography ───────────────────────────────── */
+.input-box h2 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: -0.02em;
+}
+
+.input-box h2 span { color: var(--brand); }
+
+label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* ── Inputs ───────────────────────────────────── */
+.search-input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.92rem;
+  color: var(--dark);
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  width: 100%;
+  transition: var(--transition);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.search-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--brand);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(255,107,0,0.12);
+}
+
+.search-input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: #C4A882;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A07850' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+  line-height: 1.5;
+}
+
+/* ── Global Button Reset ──────────────────────── */
+button {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ── Primary Button ───────────────────────────── */
+.search-button,
+button[type="submit"] {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 13px 28px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 14px rgba(255,107,0,0.35);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.search-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.search-button:hover::after { opacity: 1; }
+
+.search-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 22px rgba(255,107,0,0.42);
+}
+
+.search-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(255,107,0,0.3);
+}
+
+.search-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Mode Toggle (Radio buttons) ─────────────── */
+.mode-toggle-bar {
+  display: flex;
+  gap: 10px;
+  background: var(--brand-pale);
+  border-radius: var(--radius);
+  padding: 6px;
+  border: 1.5px solid var(--border);
+}
+
+/* Style the radio as pill buttons via parent label */
+.mode-toggle-bar label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  transition: var(--transition);
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.mode-toggle-bar label:has(input:checked) {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(255,107,0,0.3);
+}
+
+.mode-toggle-bar input[type="radio"] {
+  display: none;
+}
+
+/* ── Section Dividers ─────────────────────────── */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ── Section Labels ───────────────────────────── */
+.section-label {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--brand);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Ingredient Rows ──────────────────────────── */
+.ingredient-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  background: var(--brand-pale);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  transition: var(--transition);
+  margin-bottom: 8px;
+}
+
+.ingredient-row:hover {
+  border-color: rgba(255,107,0,0.3);
+  box-shadow: var(--shadow-xs);
+}
+
+/* ── Icon Buttons (+ inside rows) ────────────── */
+.icon-btn,
+button.icon-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 34px !important;
+  height: 34px !important;
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+  cursor: pointer !important;
+  transition: var(--transition) !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12) !important;
+}
+
+.icon-btn:hover,
+button.icon-btn:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+}
+
+.icon-btn:active,
+button.icon-btn:active {
+  transform: scale(0.96) !important;
+}
+
+.icon-btn-green,  button.icon-btn-green  { background: var(--success) !important; color: #fff !important; }
+.icon-btn-orange, button.icon-btn-orange { background: var(--brand)   !important; color: #fff !important; }
+.icon-btn-cyan,   button.icon-btn-cyan   { background: var(--info)    !important; color: #fff !important; }
+.icon-btn-red,    button.icon-btn-red    { background: var(--danger)  !important; color: #fff !important; }
+.icon-btn-gray,   button.icon-btn-gray   { background: #78909C        !important; color: #fff !important; }
+
+/* ── "Add Row" Ghost Button ───────────────────── */
+.add-row-btn,
+button.add-row-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  color: var(--brand) !important;
+  background: transparent !important;
+  border: 1.5px dashed rgba(255,107,0,0.4) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 8px 18px !important;
+  cursor: pointer !important;
+  transition: var(--transition) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  margin-top: 6px !important;
+  letter-spacing: 0.03em !important;
+}
+
+.add-row-btn:hover,
+button.add-row-btn:hover {
+  background: var(--brand-light) !important;
+  border-color: var(--brand) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--shadow-xs) !important;
+}
+
+/* ── Step Rows ────────────────────────────────── */
+.step-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 8px;
+  box-shadow: 0 2px 6px rgba(255,107,0,0.3);
+}
+
+/* ── Update Dropdown Panel ────────────────────── */
+.update-recipe-panel {
+  background: linear-gradient(135deg, #FFF8EE, #FFF0DD);
+  border: 1.5px solid rgba(255,179,71,0.4);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.update-recipe-panel label {
+  color: #8B5E00;
+}
+
+/* ── Image Upload Area ────────────────────────── */
+.image-upload-area {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  background: var(--brand-pale);
+}
+
+.image-upload-area:hover {
+  border-color: var(--brand);
+  background: var(--brand-light);
+}
+
+.image-upload-area input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.image-preview {
+  max-width: 200px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  border: 3px solid #fff;
+  margin-top: 12px;
+}
+
+/* ── Status Message ───────────────────────────── */
+.status-message {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-message.success {
+  background: #E8F8EF;
+  color: #146B38;
+  border: 1px solid #A8E0C0;
+}
+
+.status-message.error {
+  background: #FEE8E8;
+  color: #9B1C1C;
+  border: 1px solid #FCA5A5;
+}
+
+/* ── Login Card ───────────────────────────────── */
+.login-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+}
+
+.login-logo {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--brand);
+  text-align: center;
+  margin-bottom: 6px;
+  letter-spacing: -0.03em;
+}
+
+.login-logo span { color: var(--dark); }
+
+.login-subtitle {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+.login-error {
+  background: #FEE8E8;
+  color: #9B1C1C;
+  border: 1px solid #FCA5A5;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ── Logout Button ────────────────────────────── */
+.logout-btn,
+button.logout-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  color: var(--danger) !important;
+  background: #FEE8E8 !important;
+  border: 1.5px solid #FCA5A5 !important;
+  padding: 8px 18px !important;
+  border-radius: var(--radius-sm) !important;
+  cursor: pointer !important;
+  transition: var(--transition) !important;
+  letter-spacing: 0.03em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+.logout-btn:hover,
+button.logout-btn:hover {
+  background: var(--danger) !important;
+  color: #fff !important;
+  border-color: var(--danger) !important;
+  box-shadow: 0 4px 14px rgba(229,57,53,0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ── Header Row ───────────────────────────────── */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header-left { display: flex; flex-direction: column; gap: 2px; }
+
+.page-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--brand);
+  background: var(--brand-light);
+  padding: 3px 10px;
+  border-radius: 99px;
+  margin-bottom: 6px;
+  width: fit-content;
+}
+
+/* ── Modal Overlay ────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 16, 6, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+
+.modal-content {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 28px 30px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+  border: 1px solid var(--border);
+  animation: slideUp 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h4 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.modal-close-btn,
+button.modal-close-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  border: none !important;
+  background: var(--bg) !important;
+  color: var(--mid) !important;
+  cursor: pointer !important;
+  transition: var(--transition) !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.modal-close-btn:hover,
+button.modal-close-btn:hover {
+  background: #FEE8E8 !important;
+  color: var(--danger) !important;
+  transform: rotate(90deg) !important;
+}
+
+/* ── Nutrition Grid ───────────────────────────── */
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.nutrition-input-wrap label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+/* ── Save Modal Button ────────────────────────── */
+.modal-save-btn,
+button.modal-save-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, var(--brand), var(--brand-deep)) !important;
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 13px 20px !important;
+  cursor: pointer !important;
+  transition: var(--transition) !important;
+  box-shadow: 0 4px 14px rgba(255,107,0,0.3) !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  margin-top: 16px !important;
+  letter-spacing: 0.02em !important;
+}
+
+.modal-save-btn:hover,
+button.modal-save-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(255,107,0,0.42) !important;
+}
+
+.modal-save-btn:active,
+button.modal-save-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* ── "New" toggle link ────────────────────────── */
+.new-mode-toggle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand);
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--brand-light);
+  transition: var(--transition);
+}
+
+.new-mode-toggle:hover {
+  background: var(--brand);
+  color: #fff;
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 680px) {
+  .input-box { padding: 24px 18px; }
+  .nutrition-grid { grid-template-columns: 1fr; }
+  .input-box h2 { font-size: 1.35rem; }
+}
