@@ -96,7 +96,7 @@ const UploadResep = () => {
   const fetchData = async () => {
     try {
       const token   = localStorage.getItem("token");
-      const headers = { "ngrok-skip-browser-warning": "true", Authorization: `Bearer ${token}` };
+      const headers = { Authorization: `Bearer ${token}` };
       const baseUrl = "https://autochef.site/api";
       const [catRes, countryRes, ingRes, unitRes, recipeRes] = await Promise.all([
         axios.get(`${baseUrl}/categories`,   { headers }),
@@ -122,7 +122,7 @@ const UploadResep = () => {
       const fetchRecipeDetails = async () => {
         try {
           const token   = localStorage.getItem("token");
-          const headers = { "ngrok-skip-browser-warning": "true", Authorization: `Bearer ${token}` };
+          const headers = {  Authorization: `Bearer ${token}` };
           const { data } = await axios.get(`https://autochef.site/api/recipes/${selectedRecipeId}`, { headers });
           const r = data.data;
           setName(r.nama_resep || "");
