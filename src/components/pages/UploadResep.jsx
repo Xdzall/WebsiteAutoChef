@@ -70,7 +70,7 @@ const UploadResep = () => {
     setIsLoggingIn(true);
     setLoginError("");
     try {
-      const response = await axios.post("http://100.120.18.38:8080/api/login", {
+      const response = await axios.post("https://autochef.site/api/login", {
         email: loginEmail, password: loginPassword,
       });
       const token = response.data.token || response.data.access_token;
@@ -97,7 +97,7 @@ const UploadResep = () => {
     try {
       const token   = localStorage.getItem("token");
       const headers = { "ngrok-skip-browser-warning": "true", Authorization: `Bearer ${token}` };
-      const baseUrl = "http://100.120.18.38:8080/api";
+      const baseUrl = "https://autochef.site/api";
       const [catRes, countryRes, ingRes, unitRes, recipeRes] = await Promise.all([
         axios.get(`${baseUrl}/categories`,   { headers }),
         axios.get(`${baseUrl}/countries`,    { headers }),
@@ -123,7 +123,7 @@ const UploadResep = () => {
         try {
           const token   = localStorage.getItem("token");
           const headers = { "ngrok-skip-browser-warning": "true", Authorization: `Bearer ${token}` };
-          const { data } = await axios.get(`http://100.120.18.38:8080/api/recipes/${selectedRecipeId}`, { headers });
+          const { data } = await axios.get(`https://autochef.site/api/recipes/${selectedRecipeId}`, { headers });
           const r = data.data;
           setName(r.nama_resep || "");
           setCookingTime(r.waktu_masak || "");
@@ -173,7 +173,7 @@ const UploadResep = () => {
   const handleSaveMasterData = async () => {
     const token  = localStorage.getItem("token");
     const config = { headers: { Authorization: `Bearer ${token}` } };
-    const baseUrl = "http://100.120.18.38:8080/api";
+    const baseUrl = "https://autochef.site/api";
     try {
       if (modalType === 'ingredient') {
         const res = await axios.post(`${baseUrl}/ingredients`, { name_ingredients: newIngredientName }, config);
@@ -234,8 +234,8 @@ const UploadResep = () => {
     try {
       const token = localStorage.getItem("token");
       const url   = isEdit
-        ? `http://100.120.18.38:8080/api/recipes/${selectedRecipeId}`
-        : `http://100.120.18.38:8080/api/recipes`;
+        ? `https://autochef.site/api/recipes/${selectedRecipeId}`
+        : `https://autochef.site/api/recipes`;
       await axios.post(url, formData, {
         headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}` }
       });
